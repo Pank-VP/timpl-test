@@ -4,10 +4,12 @@
       <div class="w-full max-w-[241px]">
         <div class="w-full max-w-[160px]">
           <span class="title">
-            I want Mark to receive the full amount
+            {{t('amountTitle')}}
           </span>
         </div>
-        <p class="mt-1 text-[12px] leading-[14px] text-title-gray">You compensate service fee of 0.00€, which will be applied to your payment.</p>
+        <p class="mt-1 text-[12px] leading-[14px] text-title-gray">
+          {{t('amountSubtitleFirst')}} {{serviceFees}}€{{t('amountSubtitleSecond')}}
+        </p>
       </div>
       <label class="switch w-[54px] h-[30px]">
         <input v-model="model" type="checkbox" :value="true" @change="handleCheckboxChange">
@@ -18,13 +20,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
+import {computed, ref} from 'vue';
+import { useI18n } from 'vue-i18n';
+// refs
+const { t } = useI18n()
 const isChecked = ref(false);
 const model = defineModel()
+const props = defineProps({
+  amount: {
+    type: Number,
+    default: 0,
+  }
+})
+const serviceFees = computed(() => props.amount/100 * 1.2)
 
 const handleCheckboxChange = () => {
-  // Здесь можно добавить логику, которая выполняется при изменении состояния чекбокса
   console.log('Checkbox is checked:', isChecked.value);
 };
 </script>

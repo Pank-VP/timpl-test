@@ -12,9 +12,9 @@
         <div class="size-[92px] rounded-full cover"></div>
         <div>
           <div>
-            <span class="text-[22px] leading-6 font-semibold text-blue">Madison</span>
+            <span class="text-[22px] leading-6 font-semibold text-blue">{{t("name")}}</span>
           </div>
-          <p class="mt-1 text-base leading-5 font-semibold text-violet">Waiter</p>
+          <p class="mt-1 text-base leading-5 font-semibold text-violet">{{t("specialty")}}</p>
         </div>
       </div>
       <div class="absolute right-[-51px]">
@@ -28,5 +28,6 @@
   </div>
 </template>
 <script setup>
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n()
 </script>

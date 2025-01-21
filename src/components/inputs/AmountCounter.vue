@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="h-[96px] flex flex-col gap-2 items-center bg-white pt-3 pb-4 rounded-[20px]">
-      <p class="title text-center">Enter amount of tips</p>
+      <p class="title text-center">{{t("amountTipsTitle")}}</p>
       <div class="text-[34px] leading-[34px] text-blue" :class="{'opacity-10': !amount}">
         <span class="font-bold">
           {{amount}}€
@@ -24,7 +24,9 @@
 <script setup>
 // imports
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n';
 // refs
+const { t } = useI18n()
 const amount = ref(0)
 const tipList = [2, 5, 100]
 const emits = defineEmits(['update:amount'])

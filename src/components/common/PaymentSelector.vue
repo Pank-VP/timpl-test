@@ -3,25 +3,25 @@
     <div class="w-full rounded-[20px] pt-6 px-5 pb-8 bg-white">
       <div class="flex justify-between">
         <p class="title">
-          To pay {{props.amount}}€
+          {{t('pay')}} {{props.amount}}€
         </p>
         <p class="title text-title-gray">
-          Service fees {{serviceFees}}€
+          {{t('serviceFees')}} {{serviceFees}}€
         </p>
       </div>
       <hr class="my-3"/>
       <div class="flex flex-col gap-2">
         <button @click="visible = true" type="button" class="w-full rounded-full bg-blue flex justify-center gap-[10px] py-[10px]">
-          <span class="text-white text-base leading-6 font-medium">Pay with</span>
+          <span class="text-white text-base leading-6 font-medium">{{t('payButton')}}</span>
           <img src="@/assets/images/apple-pay.svg" alt="">
         </button>
         <button @click="visible = true" type="button" class="w-full rounded-full bg-violet flex justify-center gap-[10px] py-[10px]">
-          <span class="text-white text-base leading-6 font-medium">Pay with debit card</span>
+          <span class="text-white text-base leading-6 font-medium">{{t('payButtonDebitCard')}}</span>
         </button>
       </div>
       <div>
         <p class="mt-3 text-center text-[11px] leading-[15px] font-medium text-title-gray">
-          By clicking the button, you agree to our <span class="text-violet">Terms of Use</span> and <span class="text-violet">Privacy Policy</span>, and <span class="text-violet">authorize payment</span> and <span class="text-violet">data processing.</span>
+          {{t('agreeText')}} <span class="text-violet">{{t('termsOfUse')}}</span> {{t('and')}} <span class="text-violet">{{t('privacyPolicy')}}</span>, {{t('and')}} <span class="text-violet">{{t('authorizePayment')}}</span> {{t('and')}} <span class="text-violet">{{t('dataProcessing')}}.</span>
         </p>
       </div>
     </div>
@@ -45,8 +45,9 @@
 import {computed, ref} from 'vue';
 import Dialog from 'primevue/dialog';
 import dialogPt from "@/components/pt/dialogPt.js";
-
+import { useI18n } from 'vue-i18n';
 // refs
+const { t } = useI18n()
 const visible = ref(false);
 const props = defineProps({
   amount: {

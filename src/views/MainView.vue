@@ -3,14 +3,15 @@ import { ref } from "vue"
 import TimplHeader from "@/components/header/TimplHeader.vue";
 import RunningLine from "@/components/common/RunningLine.vue";
 import Personal from "@/components/common/Personal.vue";
-import Amount from "@/components/inputs/Amount.vue";
+import AmountCounter from "@/components/inputs/AmountCounter.vue";
 import CustomRate from "@/components/inputs/CustomRate.vue";
 import FeedbackForm from "@/components/inputs/FeedbackForm.vue";
 import FeedbackShare from "@/components/inputs/FeedbackShare.vue";
 import FullAmountConfirmation from "@/components/inputs/FullAmountConfirmation.vue";
 import PaymentSelector from "@/components/common/PaymentSelector.vue";
+import { useI18n } from 'vue-i18n';
 
-
+const { t } = useI18n()
 const experienceRate = ref(0)
 const serviceRate = ref(0)
 const amount = ref(0)
@@ -35,12 +36,12 @@ const selectServiceRate = (e) => {
       <RunningLine />
       <Personal class="mt-4" />
       <div class="px-5">
-        <Amount class="mt-5" @update:amount="setAmount" />
-        <CustomRate @update:rate="selectExperienceRate" :title="'Rate your experience'" class="mt-3" />
-        <CustomRate v-if="experienceRate" @update:rate="selectServiceRate" :title="'Rate Service'" class="mt-3" />
+        <AmountCounter class="mt-5" @update:amount="setAmount" />
+        <CustomRate @update:rate="selectExperienceRate" :title="t('rateExperience')" class="mt-3" />
+        <CustomRate v-if="experienceRate" @update:rate="selectServiceRate" :title="t('reteService')" class="mt-3" />
         <FeedbackForm v-if="experienceRate" class="mt-4" />
         <FeedbackShare v-if="experienceRate" class="mt-4" />
-        <FullAmountConfirmation class="mt-3" />
+        <FullAmountConfirmation class="mt-3" :amount="amount" />
       </div>
       <PaymentSelector class="mt-[37px]" :amount="amount" />
     </main>

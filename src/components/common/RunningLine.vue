@@ -34,7 +34,7 @@
 }
 
 .animate-running-text {
-  animation: running-text 4s linear infinite;
+  animation: running-text 10s linear infinite;
 }
 .text-shadow {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

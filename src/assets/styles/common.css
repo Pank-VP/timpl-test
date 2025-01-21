@@ -40,3 +40,9 @@ input:checked + .slider:before {
 .slider.round:before {
     @apply rounded-[50%]
 }
+.p-popover:before {
+    content: '' !important;
+}
+.p-popover:after {
+    content: '' !important;
+}
