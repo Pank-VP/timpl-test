@@ -8,10 +8,10 @@ const op = ref();
 const toggle = (event) => {
   op.value.toggle(event);
 }
-const { locale } = useI18n(); // Получаем текущий язык
+const { locale } = useI18n();
 
 const changeLanguage = (lang) => {
-  locale.value = lang; // Меняем язык
+  locale.value = lang;
   op.value.hide()
 };
 </script>
