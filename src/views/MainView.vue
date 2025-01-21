@@ -28,7 +28,7 @@ const selectServiceRate = (e) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
+  <div class="min-h-screen mx-auto bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
     <header>
       <TimplHeader/>
     </header>
