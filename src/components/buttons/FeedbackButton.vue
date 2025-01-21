@@ -1,7 +1,7 @@
 <template>
   <div class="col-span-1 relative">
     <button @click="handleClick" type="button" class="size-[74px] rounded-[12px] flex items-center justify-center bg-white" :class="{'!bg-violet': isSelected}">
-      <img :src="`src${props.url}`" :class="props.styleImage" alt="img">
+      <img :src="`${props.url}`" :class="props.styleImage" alt="img">
       <img src="@/assets/images/feedback/bg-first.png" alt="vector-bg" class="absolute top-[2px]">
       <img src="@/assets/images/feedback/bg-second.png" alt="vector-bg" class="absolute top-[10px]">
     </button>
@@ -13,7 +13,7 @@
 import { computed } from 'vue'
 const props = defineProps({
   url: {
-    type: String,
+    type: Object,
   },
   title: {
     type: String,

@@ -9,25 +9,25 @@
       <div class="mt-3 flex justify-between">
           <FeedbackButton
               @update:select="selectFeedbackValue"
-              :url="'/assets/images/feedback/smiling-face-hearts.svg'"
+              :url="faceHearts"
               :selected-data="feedbackData"
               :title="t('service')"
           />
           <FeedbackButton
               @update:select="selectFeedbackValue"
-              :url="'/assets/images/feedback/glowing-star.svg'"
+              :url="glowingStar"
               :selected-data="feedbackData"
               :title="t('cleanliness')"
           />
           <FeedbackButton
               @update:select="selectFeedbackValue"
-              :url="'/assets/images/feedback/smiling-face.svg'"
+              :url="smilingFace"
               :selected-data="feedbackData"
               :title="t('atmosphere')"
           />
           <FeedbackButton
               @update:select="selectFeedbackValue"
-              :url="'/assets/images/feedback/Hamburger.svg'"
+              :url="hamburger"
               :style-image="'absolute top-0'"
               :selected-data="feedbackData"
               :title="t('foodQuality')"
@@ -40,6 +40,10 @@
 // imports
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n';
+import faceHearts from "@/assets/images/feedback/smiling-face-hearts.svg"
+import glowingStar from "@/assets/images/feedback/glowing-star.svg"
+import smilingFace from "@/assets/images/feedback/smiling-face.svg"
+import hamburger from "@/assets/images/feedback/Hamburger.svg"
 // refs
 const { t } = useI18n()
 const feedbackData = ref([])
